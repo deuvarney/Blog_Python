@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+       
+        <link type="text/css" rel="stylesheet" href="/static/main.css" />
+         <title>Blog Post Index</title>
+    </head>
+    
+    <body>
+
+        <a href="/blogpost"><h1 id="title">Blogpost</h1></a>
+        <br>
+        <form action="/blogpost/newpost">
+        <input type="submit" value="Create New Post">
+        </form>
+        <div>
+	       	<hr>
+		    {% for posters in all_posts %}
+		       	<div class="a_post">
+		       	
+		       	<a href="/blogpost/{{posters.insert_id}}"><div class="subject">{{posters.subject}}</div></a>
+		       	<pre class="the_body">{{posters.post}}</pre>
+		       	</div>
+	       	<hr>
+       		{% endfor %}
+        </div>
+        <div id="refresh_time">{{front_refresh_time}}</div>
+    </body>
+</html>
+
